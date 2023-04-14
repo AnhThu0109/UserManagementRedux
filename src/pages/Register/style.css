@@ -1,0 +1,17 @@
+.signinForm{
+    color: #3c3c3c;
+}
+
+/* .signinForm{
+    width: 50%;
+    margin: 0 auto;
+} */
+
+.formSigninBtn{
+    width: 40%;
+    border-radius: 50px !important;
+}
+
+.signinContent{
+    background-color: #f2f2f2;
+}

@@ -1,0 +1,66 @@
+.card-item{
+    height: 180px;
+}
+
+.dashboardIcon{
+    width: 50px;
+}
+
+.barChart .chartContent{
+    width: 100%;
+}
+
+.barChart .card-header{
+    background-color: #ef8157;
+    border: 0px;
+}
+
+.barChart .chartBody{
+    border: 0px;
+}
+
+.barChart canvas{
+    height: 100% !important;
+}
+
+div.weatherForcast{
+    height: 320px;
+}
+
+.weatherIcon{
+    width: 60px;
+}
+
+.weatherItems{
+    height: 75%;
+}
+
+.weatherItem{
+    background-image: url("https://th.bing.com/th/id/R.7d216ce4c3a88ceaf05648185018ffc1?rik=GEgVIs9Bvc5V3w&riu=http%3a%2f%2fwallpaperswide.com%2fdownload%2fclouds_in_blue_sky-wallpaper-320x480.jpg&ehk=ZZu9ZS8YhvOk0QGVT%2bv%2bXD%2fI%2f2XwPMJfyisnx8aj9Ts%3d&risl=&pid=ImgRaw&r=0");
+    height: 100%;
+    border-top: 5px solid rgba(9, 30, 94, 0.858);
+    border-bottom: 5px solid rgba(9, 30, 94, 0.858);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.weatherItem2{
+    background-image: url("https://i.pinimg.com/474x/d5/93/cd/d593cdc49afad4ccf4865c3eaf7db902.jpg");
+    height: 100%;
+    border-top: 5px solid rgba(9, 30, 94, 0.858);
+    border-bottom: 5px solid rgba(9, 30, 94, 0.858);box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.locationWeather{
+    color: rgba(17, 45, 128, 0.858);
+}
+
+.searchFormLocation{
+    border-bottom: 2px solid black;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ant-spin-text {
+    margin-left: -22px;
+}

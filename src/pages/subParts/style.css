@@ -1,0 +1,287 @@
+.btnCollapse{
+    background-color: transparent;
+    font-size: 20px;
+    color: #66615b;
+}
+
+.btnCollapse svg {
+    margin-bottom: 8px;
+}
+
+div.menuList {
+    padding: 10px 0px 10px 15px;
+}
+
+li.active{
+    background-color: #51cbce;
+    border-left: 3px solid #ef8157;
+}
+
+li.active a{
+    color: black !important;
+    font-weight: bolder;
+}
+
+button.ant-switch-checked{
+    background-color: black !important;
+}
+
+.logInTitle{
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.logOutTitle{
+    color: #ef8157 !important;
+}
+
+.titleActive{
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 25px;
+}
+
+a.dropdown-item.nav-link.fw-lighter.logOutTitle.pt-2 {
+    color: grey !important;
+    padding: 0px !important;
+}
+
+.avatarNavBar svg {
+    margin-top: -10px;
+}
+
+.dropdown-menu[data-bs-popper] {
+    right: 0px !important;
+    left: auto !important;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    .titleActive {
+        display: none;
+    }
+
+    input{
+        font-size: 14px !important;
+    }
+
+    .userInfo>div.col-lg-4.col-sm-11.border-0.bg-white.mt-lg-4.mt-sm-3.me-lg-4.rounded-4.p-0 {
+        margin: 10px 0px !important;
+    }
+
+    div.userInfo {
+        margin: 0px 10px 10px 10px !important;
+    }
+
+    .addUser {
+        margin-top: 15px;
+        width: 25px;
+    }
+
+    .barChart{
+        margin-bottom: 15px !important;
+    }
+
+    div.weatherForcast {
+        height: fit-content;
+    }
+
+    .loginForm form {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .signinForm {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0px 10px;
+    }
+
+    .login-input-div, button.mt-3.mb-3.text-white.btn.btn-secondary.formLoginBtn {
+        margin: 0px 10px;
+    }
+}
+
+/* Galaxy Fold + iphone SE*/
+@media only screen and (min-width: 280px) and (max-width: 600px) {
+    .card-item {
+        height: 200px;
+    }
+
+    .avatarUserChosen {
+        margin-top: -60%;
+    }
+
+    .modalSeeInfo .ant-modal-content {
+        top: 10px;
+    }
+
+    input.form-control.border.border-2.rounded-3.px-4.py-1.ms-3 {
+        width: 93%;
+    }
+
+    div.notFound img {
+        width: 35% !important;
+        height: 30% !important;
+    }
+
+    .loginForm form {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .signinForm {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0px 10px;
+    }
+
+    .login-input-div, button.mt-3.mb-3.text-white.btn.btn-secondary.formLoginBtn {
+        margin: 0px 10px;
+    }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px)  {
+    div.notFound img {
+        width: 35% !important;
+        height: 35% !important;
+    }
+
+    .barChart{
+        margin-bottom: 15px !important;
+    }
+
+    .loginForm form {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .signinForm {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0px 10px;
+    }
+
+    .login-input-div, button.mt-3.mb-3.text-white.btn.btn-secondary.formLoginBtn {
+        margin: 0px 10px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    div.userInfo {
+        margin: -5px 0px 0px 0px !important;
+    }
+
+    .barChart .chartContent{
+        height: 320px;
+    }
+
+    .barChart{
+        margin-bottom: 110px !important;
+    }    
+}
+
+/* Medium devices (912px and up) */
+@media only screen and (min-width: 912px) and (max-width: 992px) {
+    .barChart{
+        margin-bottom: 110px !important;
+    }
+}
+
+/* Surface Pro 7 */
+@media only screen and (width: 912px) and (height: 1368px) {
+    .barChart{
+        margin-bottom: 110px !important;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    div.userInfo {
+        margin: 0px 0px 0px 0px !important;
+    }
+
+    .sb-nav-fixed.sb-sidenav-toggled div.userInfo {
+        margin: 0px 0px 15px 0px !important;
+    }
+
+    .sb-nav-fixed div.userInfo {
+        margin: -10px 0px 15px 0px !important;
+    }
+
+
+    .barChart .chartBody{
+        height: 100%;
+    }
+
+    .barChart{
+        margin-bottom: 15px !important;
+    }
+
+    .card-item div {
+        font-size: 14px !important;
+    }
+
+    div.notFound img {
+        width: 35% !important;
+        height: 50% !important;
+    }
+
+    .loginForm form, .signinForm {
+        width: 50%;
+        margin: 0 auto;
+    }
+    
+}
+
+/* Weather forecast for NestHub */
+@media only screen and (width: 1024px) and (height: 600px) {
+    .sb-nav-fixed .weatherItem2,.sb-nav-fixed .weatherItem {
+        height: 45%;
+    }
+
+    .sb-nav-fixed .weatherItem2 .temperature,.sb-nav-fixed .weatherItem .temperature, .sb-nav-fixed .weatherItem2 .textCondition,.sb-nav-fixed .weatherItem .textCondition{
+        display: none;
+    }
+
+    .sb-nav-fixed .weatherItem2 .weatherIcon,.sb-nav-fixed .weatherItem .weatherIcon{
+        margin-top: -18px;
+    }
+
+    .sb-nav-fixed.sb-sidenav-toggled .weatherItem2,.sb-nav-fixed.sb-sidenav-toggled .weatherItem {
+        height: 100%;
+    }
+
+    .sb-nav-fixed.sb-sidenav-toggled .weatherItem2 .temperature,.sb-nav-fixed.sb-sidenav-toggled .weatherItem .temperature, .sb-nav-fixed.sb-sidenav-toggled .weatherItem2 .textCondition,.sb-nav-fixed.sb-sidenav-toggled .weatherItem .textCondition{
+        display:block;
+    }
+
+    .sb-nav-fixed.sb-sidenav-toggled .weatherItem2 .weatherIcon,.sb-nav-fixed.sb-sidenav-toggled .weatherItem .weatherIcon{
+        margin-top: auto;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .sb-nav-fixed.sb-sidenav-toggled .barChart canvas{
+        position: relative;
+        left: 10%;
+    }
+
+    div.notFound img {
+        width: 35% !important;
+        height: 70% !important;
+    }
+
+    .loginForm form, .signinForm {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+}
+

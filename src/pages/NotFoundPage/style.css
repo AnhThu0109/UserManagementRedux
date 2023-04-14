@@ -1,0 +1,9 @@
+div.notFound{
+    background-color: #F6F6F6ff;
+    width: 100%;
+}
+
+div.notFound img{
+    width: 35%;
+    height: 50%;
+}
