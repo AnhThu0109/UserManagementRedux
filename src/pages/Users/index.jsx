@@ -76,6 +76,20 @@ function Users() {
         }
     }
 
+    //Using axios
+    // async function deleteUserById(index, tokenUser) {
+    //     const response = await deleteUser(index, tokenUser)
+    //     if (response.status == 200) {
+    //         if (loginUserId == index) {
+    //             await Promise.all([logOut(token), window.location.replace("/login")]);
+    //         }
+    //         setIsDeleted(true);
+    //         setUserId("");
+    //     } else {
+    //         console.log("error delete");
+    //     }
+    // }
+
     //Show modal to add new user
     const [isModalNewOpen, setIsModalNewOpen] = useState(false);
     const showModalNew = () => {
