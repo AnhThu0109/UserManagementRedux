@@ -5,24 +5,12 @@ import SaveIcon from '@mui/icons-material/Save';
 import { Grid, InputLabel, TextField, Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { DatePicker } from '@mui/x-date-pickers';
-import { UseMutationResult } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 
 import CustomButton from '@app/components/Button';
-import FormDialog from '@app/components/CommonDialog/FormDialog';
 import { useToast } from '@app/hooks';
-import { IDialogBaseRef } from '@app/types/dialog';
 import { SchoolDTO } from '@app/types/dtos/school.dto';
-import { validate } from 'class-validator';
 
-type EducationProps = {
-  title: string;
-  dialogRef: React.RefObject<IDialogBaseRef>;
-  handleAction: (options: { onSuccess: () => void }) => UseMutationResult<SchoolDTO, unknown, SchoolDTO, unknown>;
-  messageSuccess: string;
-  messageFail: string;
-  data: SchoolDTO;
-};
 const resolver = classValidatorResolver(SchoolDTO);
 
 const initialData = {
@@ -34,14 +22,9 @@ const initialData = {
   grade: ''
 };
 
-const UserEducationDialog: React.FC<EducationProps> = ({
-  title,
-  dialogRef,
-  handleAction,
-  messageSuccess,
-  messageFail,
-  data
-}) => {
+const CoreUserInfoEducationForm = (props: any): JSX.Element => {
+  const { school, startDate, endDate, degree, studyField, grade } = props.data;
+
   const {
     register,
     reset,
@@ -51,49 +34,47 @@ const UserEducationDialog: React.FC<EducationProps> = ({
     formState: { errors }
   } = useForm<SchoolDTO>({
     resolver,
-    defaultValues: data
+    defaultValues: {
+      school,
+      startDate,
+      endDate,
+      degree,
+      studyField,
+      grade
+    }
   });
 
   // get query method
-  const { mutate: execCreate, isLoading } = handleAction({
+  const { mutate: execCreate, isLoading } = props.handleAction({
     onSuccess: () => {
       console.log('Successful');
     }
   });
-  // useCreateSchool
 
   const toast = useToast();
 
   const onCloseModal = () => {
-    reset(initialData);
     clearErrors(['school', 'startDate', 'endDate', 'degree', 'studyField', 'grade']);
+    props.onCloseDialog();
   };
 
   // handle create new school
   const onSubmit = (formData: SchoolDTO) => {
     execCreate(formData, {
       onSuccess: () => {
-        console.log("formdata",formData);
-        reset({
-          school: '',
-          startDate: '',
-          endDate: '',
-          degree: '',
-          studyField: '',
-          grade: ''
-        }); //reset modal when create success
-        toast.success(messageSuccess);
+        console.log('submit data',formData);
+        reset(initialData); //reset modal when create success
+        toast.success(props.messageSuccess);
         onCloseModal();
       },
       onError: (error) => {
-        console.log("formdata",formData);
-        toast.error(messageFail);
+        toast.error(props.messageFail);
       }
     });
   };
 
   return (
-    <FormDialog width='sm' title={title} ref={dialogRef}>
+    <> 
       <Grid container spacing={2} item xs={12} sm={12}>
         <Grid item xs={12} sm={4}>
           <Controller
@@ -268,8 +249,8 @@ const UserEducationDialog: React.FC<EducationProps> = ({
           </CustomButton>
         </Grid>
       </Grid>
-    </FormDialog>
+      </>
   );
 };
 
-export default UserEducationDialog;
+export default CoreUserInfoEducationForm;
