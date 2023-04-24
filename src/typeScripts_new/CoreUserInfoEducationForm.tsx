@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import SaveIcon from '@mui/icons-material/Save';
-import { Grid, InputLabel, TextField, Typography } from '@mui/material';
+import { Grid, TextField, Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
@@ -24,6 +25,8 @@ const initialData = {
 
 const CoreUserInfoEducationForm = (props: any): JSX.Element => {
   const { school, startDate, endDate, degree, studyField, grade } = props.data;
+  const [minDate, setMinDate] = useState<string | undefined>(startDate);
+  const [maxDate, setMaxDate] = useState<string | undefined>(endDate);
 
   const {
     register,
@@ -62,19 +65,19 @@ const CoreUserInfoEducationForm = (props: any): JSX.Element => {
   const onSubmit = (formData: SchoolDTO) => {
     execCreate(formData, {
       onSuccess: () => {
-        console.log('submit data',formData);
+        console.log('submit data', formData);
         reset(initialData); //reset modal when create success
         toast.success(props.messageSuccess);
         onCloseModal();
       },
-      onError: (error) => {
+      onError: () => {
         toast.error(props.messageFail);
       }
     });
   };
 
   return (
-    <> 
+    <>
       <Grid container spacing={2} item xs={12} sm={12}>
         <Grid item xs={12} sm={4}>
           <Controller
@@ -82,9 +85,9 @@ const CoreUserInfoEducationForm = (props: any): JSX.Element => {
             control={control}
             render={({ field: { onChange, value } }) => (
               <>
-                <InputLabel htmlFor='school'>School</InputLabel>
                 <TextField
                   {...register('school')}
+                  label='School'
                   fullWidth
                   id='school'
                   variant='outlined'
@@ -105,15 +108,17 @@ const CoreUserInfoEducationForm = (props: any): JSX.Element => {
             control={control}
             render={({ field: { onChange, value } }) => (
               <>
-                <InputLabel htmlFor='startDate'>Start Date</InputLabel>
                 <DatePicker
                   {...register('startDate')}
+                  label='Start Date'
                   views={['year', 'month']}
                   className='w-full'
                   value={value ? dayjs(value, 'MM/YYYY') : null}
                   onChange={(date) => {
                     onChange(date?.format('MM/YYYY'));
+                    setMinDate(date?.format('MM/YYYY'));
                   }}
+                  maxDate={dayjs(maxDate, 'MM/YYYY')}
                   slotProps={{
                     textField: {
                       helperText: (
@@ -121,7 +126,7 @@ const CoreUserInfoEducationForm = (props: any): JSX.Element => {
                       )
                     }
                   }}
-                  format="MM/YYYY"
+                  format='MM/YYYY'
                   sx={{
                     '& > label': {
                       color: errors.startDate && 'red'
@@ -141,21 +146,23 @@ const CoreUserInfoEducationForm = (props: any): JSX.Element => {
             control={control}
             render={({ field: { onChange, value } }) => (
               <>
-                <InputLabel htmlFor='endDate'>End Date</InputLabel>
                 <DatePicker
                   {...register('endDate')}
+                  label='End Date'
                   views={['year', 'month']}
                   className='w-full'
                   value={value ? dayjs(value, 'MM/YYYY') : null}
                   onChange={(date) => {
                     onChange(date?.format('MM/YYYY'));
+                    setMaxDate(date?.format('MM/YYYY'));
                   }}
+                  minDate={dayjs(minDate, 'MM/YYYY')}
                   slotProps={{
                     textField: {
                       helperText: <Typography sx={{ color: 'red', fontSize: 12 }}>{errors.endDate?.message}</Typography>
                     }
                   }}
-                  format="MM/YYYY"
+                  format='MM/YYYY'
                   sx={{
                     '& > label': {
                       color: errors.endDate && 'red'
@@ -175,9 +182,9 @@ const CoreUserInfoEducationForm = (props: any): JSX.Element => {
             control={control}
             render={({ field: { onChange, value } }) => (
               <>
-                <InputLabel htmlFor='degree'>Degree</InputLabel>
                 <TextField
                   {...register('degree')}
+                  label='Degree'
                   fullWidth
                   id='degree'
                   variant='outlined'
@@ -198,9 +205,9 @@ const CoreUserInfoEducationForm = (props: any): JSX.Element => {
             control={control}
             render={({ field: { onChange, value } }) => (
               <>
-                <InputLabel htmlFor='studyField'>Field of Study</InputLabel>
                 <TextField
                   {...register('studyField')}
+                  label='Field of Study'
                   fullWidth
                   id='studyField'
                   variant='outlined'
@@ -221,9 +228,9 @@ const CoreUserInfoEducationForm = (props: any): JSX.Element => {
             control={control}
             render={({ field: { onChange, value } }) => (
               <>
-                <InputLabel htmlFor='grade'>Grade</InputLabel>
                 <TextField
                   {...register('grade')}
+                  label='Grade'
                   fullWidth
                   id='grade'
                   variant='outlined'
@@ -249,7 +256,7 @@ const CoreUserInfoEducationForm = (props: any): JSX.Element => {
           </CustomButton>
         </Grid>
       </Grid>
-      </>
+    </>
   );
 };
 
