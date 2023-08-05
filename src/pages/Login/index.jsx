@@ -26,7 +26,7 @@ const Login = () => {
     try{
       //check for login times of this user existed or not
       const response = await getLoginTimesByUserId(id)
-      if(response.ok){
+      if(response.ok ){
         const data = await response.json();
         const loginTimes = data.logintime;
         await updateLoginTimes(id, loginTimes);
